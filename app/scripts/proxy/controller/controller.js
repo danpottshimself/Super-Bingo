@@ -1,5 +1,5 @@
 angular.module('Tombola.Module.ApiCall', [])
-.controller('ApiController', ['$scope','ApiCalls',
-        function ($scope, apiCalls){
-        $scope.apiCalls = apiCalls;
+.controller('ApiController', ['$scope','GameApi',
+        function ($scope, gameApi){
+        $scope.gameApi = gameApi;
         }]);

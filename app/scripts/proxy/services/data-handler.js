@@ -7,7 +7,7 @@ angular.module('Tombola.Module.ApiCall')
                 $http.post('http://eutaveg-01.tombola.emea:30069' + endUrl, data)
                     .then(function (response) {
                         deferred.resolve(response.data);
-                        $state.go('lobby');
+                        $state.go('/lobby');
                     })
                     .catch(function (response) {
                         deferred.reject(response.data);

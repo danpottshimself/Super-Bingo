@@ -1,4 +1,8 @@
 (function () {
     'use strict';
-    /*TODO: Write some codez*/
-})();
+    angular.module('Tombola.Module.ApiCall')
+        .run(['$templateCache', function ($templateCache) {
+            $templateCache.put('html/logIn.html', '<!DOCTYPE html><html lang="en" ng-app="Tombola.Module.ApiCall" ng-controller="ApiController"> <head> <script type="text/javascript" src="../thirdparty/bower_components/angular/angular.min.js"></script> <script type="text/javascript" src="../thirdparty/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script> <meta charset="UTF-8"> <title>Bingo</title> </head> <body> <img src="../images/pageBanner.png"> <div class="login"> <h1>Login to Bingo</h1> <form method="post" action="logIn.html"> <p><input type="text" name="username" value="" placeholder="Username or Email"></p> <p><input type="password" name="password" value="" placeholder="Password"></p> <p class="remember_me"> <label> <input type="checkbox" name="remember_me" id="remember_me"> Remember me on this computer </label> </p> <p class="submit"><input type="submit" name="commit" value="Login" onsubmit="gameApi.logIn()"></p> </form> </div> </body> <script src="../scripts/app.js"></script> </html>');
+            $templateCache.put('html/lobby.html', '<!DOCTYPE html> <html lang="en" ng-app="Tombola.Module.ApiCall" ng-controller="ApiController"> <head> <script type="text/javascript" src="../thirdparty/bower_components/angular/angular.min.js"></script> <script type="text/javascript" src="../thirdparty/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script> <meta charset="UTF-8"> <title>Bingo</title> </head> <body> <img src="../images/pageBanner.png"> <h1> THIS IS THE LOBBY</h1> </body> <script src="../scripts/app.js"></script> </html>');
+        }]);
+        })();
