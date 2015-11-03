@@ -12,9 +12,12 @@
     <div>Username: {{gameApi.username}}</div>
     <div>Balance:{{gameApi.balance | currency}}</div>
 </div>
-<input type="button" value="Log Out" ng-click="authenticateUser.logOut()">
+<div>
+    <input type="button" value="Start new game" ng-click="gameApi.getNextGame()">
+</div>
+<input type="button" value="Log Out" ng-click="gameApi.logOut()">
 <br>
-<a ng-hide="hideMe" ui-sref="home" href="#" ng-click="hideMe=true">Home</a>
+<a ui-sref="home" href="#">Home</a>
 
 </body>
 <script src="../scripts/app.js"></script>

@@ -13,7 +13,7 @@
                         headers = {
                         'content-type': 'application/json'
                     };
-                    return dataHandle.dataHandler('/users/login', data, headers);
+                    return dataHandle.dataHandler('/users/login', data, headers, 'POST');
                 };
 
                 me.logOutInformation = function (token) {
@@ -21,7 +21,15 @@
                         'x-token': token,
                         'content-type': 'application/json'
                     };
-                    return dataHandle.dataHandler('/users/logout', {}, headers);
+                    return dataHandle.dataHandler('/users/logout', {}, headers, 'POST');
+                };
+
+                me.nextGameInformation = function (token) {
+                    var headers = {
+                        'x-token': token,
+                        'content-type': 'application/json'
+                    };
+                    return dataHandle.dataHandler('/game/next', {}, headers, 'GET');
                 };
             }]);
 })();

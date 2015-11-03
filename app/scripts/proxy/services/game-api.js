@@ -8,7 +8,10 @@
                         me.username = response.payload.user.username;
                         me.balance = response.payload.user.balance;
                         me.token = response.payload.user.token;
-                        me.token = response.payload.user.password;
+                        me.password = response.payload.user.password;
+                        me.start= response.payload.start;
+                        me.gameId= response.payload.gameId;
+                        me.ticketPrice = response.payload.ticketPrice;
                     };
                 me.message = '';
                 me.username = '';
@@ -35,6 +38,10 @@
                     var promise = authenticateUser.logOutInformation(me.token);
                     me.handlePromise(promise);
                     $state.go('home');
+                };
+                me.getNextGame = function () {
+                    var promise = authenticateUser.nextGameInformation(me.token);
+                    me.handlePromise(promise);
                 };
             }]);
 })();
