@@ -31,5 +31,17 @@
                     };
                     return dataHandle.dataHandler('/game/next', {}, headers, 'GET');
                 };
+                me.buyTicketInformation = function (username, balance, token) {
+                    var data = {
+                        'gameId' : 1,
+                        'userId': username,
+                        'balance':balance
+                        },
+                        headers = {
+                        'x-token': token,
+                        'content-type': 'application/json'
+                        };
+                    return dataHandle.dataHandler('/game/buyticket', data, headers, 'POST');
+                };
             }]);
 })();

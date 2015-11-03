@@ -12,12 +12,15 @@
                         me.start= response.payload.start;
                         me.gameId= response.payload.gameId;
                         me.ticketPrice = response.payload.ticketPrice;
+                        me.ticketNumber = response.payload.card;
+                        console.log(me.ticketNumber);
                     };
                 me.message = '';
                 me.username = '';
                 me.balance = '';
                 me.token = '';
                 me.password = '';
+                me.ticketNumber = '';
 
                 me.handlePromise = function (promise) {
                     promise.then(function (response) {
@@ -41,6 +44,10 @@
                 };
                 me.getNextGame = function () {
                     var promise = authenticateUser.nextGameInformation(me.token);
+                    me.handlePromise(promise);
+                };
+                me.buyTicket = function () {
+                    var promise = authenticateUser.buyTicketInformation(me.username, me.balance, me.token);
                     me.handlePromise(promise);
                 };
             }]);

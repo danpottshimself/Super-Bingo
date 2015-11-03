@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="Tombola.Module.ApiCall" ng-controller="ApiController">
+<html lang="en" ng-app="Tombola.Module.Main" ng-controller="ApiController">
 <head>
     <script type="text/javascript" src="../thirdparty/bower_components/angular/angular.min.js"></script>
     <script type="text/javascript" src="../thirdparty/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
@@ -17,8 +17,17 @@
 </div>
 <input type="button" value="Log Out" ng-click="gameApi.logOut()">
 <br>
-<a ui-sref="home" href="#">Home</a>
 
+<div ng-controller="BingoTicket">
+    <input type="button" value="Buy ticket" ng-click="createTicket()">
+    <table class="ticket">
+        <tr ng-repeat="row in ticket.rows">
+            <td ng-repeat="spot in row.spots">
+         </td>
+        </tr>
+    </table>
+    </div>
+<a ui-sref="home" href="#">Home</a>
 </body>
 <script src="../scripts/app.js"></script>
 </html>
