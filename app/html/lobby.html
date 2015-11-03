@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="Tombola.Module.ApiCall" ng-controller="ApiController">
+<head>
+    <script type="text/javascript" src="../thirdparty/bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="../thirdparty/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Bingo</title>
+</head>
+<body>
+<h1> Welcome! Lets play some bingo</h1>
+<div class="playerInformation">
+    <div>Username: {{gameApi.username}}</div>
+    <div>Balance:{{gameApi.balance | currency}}</div>
+</div>
+<div>
+    <input type="button" value="Start new game" ng-click="gameApi.getNextGame()">
+</div>
+<input type="button" value="Log Out" ng-click="gameApi.logOut()">
+<br>
+<a ui-sref="home" href="#">Home</a>
+
+</body>
+<script src="../scripts/app.js"></script>
+</html>
