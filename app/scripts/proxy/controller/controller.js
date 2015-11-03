@@ -1,13 +1,9 @@
 (function () {
         'use strict';
         angular.module('Tombola.Module.ApiCall')
-            .controller('ApiController', ['$scope', 'GameApi', 'ApiCalls',
-                    function ($scope, gameApi, apiCalls) {
+            .controller('ApiController', ['$scope', 'AuthenticateUser', 'GameApi',
+                    function ($scope, authenticateUser, gameApi) {
+                            $scope.authenticateUser = authenticateUser;
                             $scope.gameApi = gameApi;
-                            $scope.apiCalls = apiCalls;
-                            $scope.data = {
-                                    username: 'drwho',
-                                    password: 'tardis123!'
-                            };
                     }]);
 })();

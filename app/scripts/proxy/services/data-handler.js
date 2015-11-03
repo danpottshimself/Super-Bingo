@@ -2,9 +2,9 @@ angular.module('Tombola.Module.ApiCall')
     .service('DataHandle',['$http', '$q',
         function ($http, $q) {
             var me = this;
-            me.dataHandler = function (endUrl, data) {
+            me.dataHandler = function (endUrl, data, headers) {
                 var deferred = $q.defer();
-                $http.post('http://eutaveg-01.tombola.emea:30069' + endUrl, data)
+                $http.post('http://eutaveg-01.tombola.emea:30069' + endUrl, data, headers)
                     .then(function (response) {
                         deferred.resolve(response.data);
                     })
