@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="en" ng-app="Tombola.Module.Main" ng-controller="ApiController">
-<head>
-    <script type="text/javascript" src="../thirdparty/bower_components/angular/angular.min.js"></script>
-    <script type="text/javascript" src="../thirdparty/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
-    <meta charset="UTF-8">
-    <title>Bingo</title>
-</head>
-<body>
+<div ng-controller="ApiController">
 <h1> Welcome! Lets play some bingo</h1>
 <div class="playerInformation">
     <div>Username: {{gameApi.username}}</div>
@@ -17,17 +9,10 @@
 </div>
 <input type="button" value="Log Out" ng-click="gameApi.logOut()">
 <br>
+</div>
+
 
 <div ng-controller="BingoTicket">
-    <input type="button" value="Buy ticket" ng-click="createTicket()">
-    <table class="ticket">
-        <tr ng-repeat="row in ticket.rows">
-            <td ng-repeat="spot in row.spots">
-         </td>
-        </tr>
-    </table>
-    </div>
+    <input type="button" value="Buy ticket" ng-click="ticketCreation.sortTicket()">
+</div>
 <a ui-sref="home" href="#">Home</a>
-</body>
-<script src="../scripts/app.js"></script>
-</html>

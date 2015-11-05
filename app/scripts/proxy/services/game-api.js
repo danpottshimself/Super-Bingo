@@ -6,21 +6,14 @@
                 var me  = this,
                     updateInformation = function(response){
                         me.username = response.payload.user.username;
-                        me.balance = response.payload.user.balance;
+                        me.balance = response.payload.user.balance/100;
                         me.token = response.payload.user.token;
-                        me.password = response.payload.user.password;
-                        me.start= response.payload.start;
-                        me.gameId= response.payload.gameId;
-                        me.ticketPrice = response.payload.ticketPrice;
                         me.ticketNumber = response.payload.card;
-                        console.log(me.ticketNumber);
                     };
-                me.message = '';
                 me.username = '';
                 me.balance = '';
                 me.token = '';
-                me.password = '';
-                me.ticketNumber = '';
+                me.ticketNumber = [];
 
                 me.handlePromise = function (promise) {
                     promise.then(function (response) {

@@ -2,13 +2,9 @@ angular.module('Tombola.Module.ApiCall', []);
 angular.module('Tombola.Module.Ticket', []);
 angular.module('Tombola.Module.Main', ['ui.router', 'Tombola.Module.ApiCall', 'Tombola.Module.Ticket'])
 .config(function($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise("/home");
+    $urlRouterProvider.otherwise("/logIn");
 
     $stateProvider
-        .state('home', {
-            url: "/home",
-            templateProvider:function ($templateCache){ return $templateCache.get("html/index.html");}
-        })
         .state('logIn', {
             url: "/logIn",
             templateProvider:function ($templateCache){ return $templateCache.get("html/login.html");}
@@ -16,5 +12,9 @@ angular.module('Tombola.Module.Main', ['ui.router', 'Tombola.Module.ApiCall', 'T
         .state('lobby', {
             url: "/lobby",
             templateProvider:function ($templateCache){ return $templateCache.get("html/lobby.html");}
+        })
+        .state('tickets', {
+            url: "/tickets",
+            templateProvider:function ($templateCache){ return $templateCache.get("ticketMaster");}
         });
     });
