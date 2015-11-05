@@ -1,23 +1,14 @@
 (function () {
     'use strict';
     angular.module('Tombola.Module.ApiCall')
-        .service('GameApi', ['$state', 'AuthenticateUser',
-            function ($state, authenticateUser) {
-                var me  = this,
-                    updateInformation = function(response){
-                        me.username = response.payload.user.username;
-                        me.balance = response.payload.user.balance/100;
-                        me.token = response.payload.user.token;
-                        me.ticketNumber = response.payload.card;
-                    };
-                me.username = '';
-                me.balance = '';
-                me.token = '';
-                me.ticketNumber = [];
-
+        .service('GameApi', ['$state', 'AuthenticateUser', 'TicketCreation', 'UserLogIn',
+            function ($state, authenticateUser, ticketCreation, userLogIn) {
+                var me  = this;
                 me.handlePromise = function (promise) {
                     promise.then(function (response) {
-                        updateInformation(response);
+                        if(response.message == "TicketBought"){
+                            ticketCreation.sortTicket(response.payload.card);
+                        }
                         return response;
                     })
                         .catch(function (response) {
@@ -25,23 +16,19 @@
                         });
                 };
 
-                me.logIn = function () {
-                    var promise = authenticateUser.logInInformation(me.username, me.password);
-                    me.handlePromise(promise);
-                    $state.go('lobby');
-                };
                 me.logOut = function () {
-                    var promise = authenticateUser.logOutInformation(me.token);
+                    var promise = authenticateUser.logOutInformation(userLogIn.token);
                     me.handlePromise(promise);
-                    $state.go('home');
+                    $state.go('logIn');
                 };
                 me.getNextGame = function () {
-                    var promise = authenticateUser.nextGameInformation(me.token);
+                    var promise = authenticateUser.nextGameInformation(userLogIn.token);
                     me.handlePromise(promise);
                 };
                 me.buyTicket = function () {
-                    var promise = authenticateUser.buyTicketInformation(me.username, me.balance, me.token);
+                    var promise = authenticateUser.buyTicketInformation(userLogIn.username, userLogIn.balance, userLogIn.token);
                     me.handlePromise(promise);
+                    ticketCreation.sortTicket();
                 };
             }]);
 })();
