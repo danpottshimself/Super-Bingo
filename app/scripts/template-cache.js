@@ -26,9 +26,11 @@
                     '<h3> {Jeeves is now preparing the balls} Get ready for some bingo blastin!</h3>' +
                     ' <input type="button" value="Buy ticket" ng-click="gameApi.buyTicket()">' +
                     ' </div>' +
-                    '<div ng-controller="BingoTicket">'+
-                    '<div ng-repeat="line in ticketCreation.lines  track by $index">' +
-                    '<div ng-repeat="block in ticketCreation.number  track by $index">' +
+                    '<div ng-controller="BingoTicket" class="bingoTicket">'+
+                    '<div ng-repeat="line in ticketCreation.lines  track by $index">'+
+                    '<div ng-repeat= "square in ticketCreation.createSquares() track by $index">' +
+                    '<div class="square border centreText"> {{ticketCreation.isASquare($parent.$index, $index)}}' +
+                    '</div>'+
                     '</div>'+
                     '</div>'+
                     '</div>'

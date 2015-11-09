@@ -28,7 +28,6 @@
                 me.buyTicket = function () {
                     var promise = authenticateUser.buyTicketInformation(userLogIn.username, userLogIn.balance, userLogIn.token);
                     me.handlePromise(promise);
-                    ticketCreation.sortTicket();
                 };
             }]);
 })();
