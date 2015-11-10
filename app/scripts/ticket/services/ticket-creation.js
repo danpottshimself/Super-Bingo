@@ -5,7 +5,8 @@
             function () {
                 var me = this;
                 me.ticket = {
-                    numbers:[]
+                    numbers:[],
+                    matched: false
                 };
                 me.lines = [];
                 me.squares = [];
@@ -33,16 +34,17 @@
                 };
 
                 me.isASquare = function (lineNumber, index){
-                    console.log(lineNumber, index);
                     var i;
-                    for (i=0; i<me.lines.length; i++){
-                        var minRange = (index*10)+ 1,
+                    for (i=0; i <= me.lines[lineNumber].length; i++){
+                        var minRange = (index*10),
                             maxRange = (index*10)+10;
-                        if (me.lines[lineNumber][i]>minRange && me.lines[lineNumber][i] < maxRange){
+                        if (me.lines[lineNumber][i]>=minRange && me.lines[lineNumber][i] <= maxRange){
                             return me.lines[lineNumber][i];
+
                         }
                     }
                     return 0;
+
                 };
             });
 })();
