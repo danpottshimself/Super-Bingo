@@ -20,7 +20,7 @@
                     };
 
                     me.houseWinner= function(response){
-                        me.houseMessage = 'Well Done! You have won the house prize of £' + response.payload.winnerInfo.houseprize;
+                        me.houseMessage = 'Well Done! You have won the house prize of £'+ response.payload.winnerInfo.houseprize;
                         userLogIn.balance += response.payload.winnerInfo.houseprize;
                         $timeout ($state.go('lobby'), 6000);
                     };

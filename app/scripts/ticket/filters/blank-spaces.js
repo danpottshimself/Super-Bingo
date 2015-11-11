@@ -4,11 +4,12 @@
         .filter('SpaceFilter', [
             function () {
 
-                return function(number){
-                  if (number === 0) {
+                return function(ticketNumber){
+                  if (ticketNumber.number === '00') {
                       return 'blankSpace';
                   }
-                      if (number === 'matched') {
+                    console.log(ticketNumber);
+                      if (ticketNumber.matched === true) {
                           return 'matched';
                       }
                           else {

@@ -15,12 +15,10 @@
                     if(checkForWinners.houseWinner){
                         $timeout.cancel(me.bingoCall);
                     }
-                    if(ticketCreation.ticket.numbers === me.call){
-                        ticketCreation.ticket.matched = true;
-                    }
                     if (noWinnerFound){
-                        $timeout(me.bingoCall, 1000);
+                        $timeout(me.bingoCall, 4000);
                     }
+
                 };
 
                 me.bingoCallInformation = function (username, balance, callNumber, token ) {
@@ -42,6 +40,7 @@
                     promise.then(function (response) {
                         me.balance = response.payload.user.balance/100;
                         me.call = response.payload.call;
+                        ticketCreation.ifNumbersMatch(me.call);
                         if(me.calledNumbers.length >= 5){
                             me.calledNumbers.shift();
                         }

@@ -4,6 +4,9 @@ body{
   margin-left: 20%;
   margin-right: 20%;
 }
+.button {
+  //margin-left: 50px;
+}
 .playerInformation{
   border: solid 5px;
   text-decoration: #006600;
@@ -53,6 +56,12 @@ body{
   vertical-align: middle;
   line-height: 51px;
 }
+.centreLobby{
+  text-align: center;
+  vertical-align: middle;
+  align-content: center;
+}
+
 
 .row {
   align-self: center;
@@ -61,7 +70,7 @@ body{
 .bingoTicket{
   padding-top: 20px;
   padding-bottom: 20px;
-  margin-left: 25%;
+  margin-left: 20%;
   width: 600px;
   margin-top: 30px;
   margin-bottom: 40px;
@@ -70,12 +79,14 @@ body{
 .calledNumber {
   font-size: 40px;
 }
+
 .calledRow {
   font-size: 25px;
-  line-height: 35px;
-  vertical-align: bottom;
+  line-height: 50px;
+  vertical-align:bottom;
 
 }
+
 .numbersRow{
   display: inline-block;
   margin-left: 60px;
@@ -92,6 +103,30 @@ color:#FFFFFF;
   z-index: 999;
 }
 
+@keyframes squares {
+  from {
+    background-color: #DDDDDD;
+  }
+  to {background-color: #009900}
+}
 .matched {
-  background-color: #008800;
+  background-color: #009900;
+  animation-name: squares;
+  animation-duration: 3s;
+}
+.modal{
+  position: fixed;
+  top: 50%;
+  left: 45%;
+  width: 600px;
+  line-height: 100px;
+  height: 150px;
+  margin-left: -150px;
+  margin-top: -100px;
+  background-color: #f1c40f;
+  text-align: center;
+  transition-duration: 3s;
+
+  z-index: 10;
+  outline: 9999px solid rgba(0,0,0,0.5);
 }

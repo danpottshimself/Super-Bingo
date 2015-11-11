@@ -5,8 +5,11 @@
             function () {
                 var me = this;
                 me.ticket = {
-                    numbers:[],
-                    matched: false
+                    numbers:[]
+                };
+                var BingoNumber = function (theNumber) {
+                    this.number = theNumber;
+                    this.matched = false;
                 };
                 me.lines = [];
                 me.squares = [];
@@ -14,7 +17,7 @@
                 me.sortTicket = function (cardNumber){
                     var k;
                     for(k = 0; k < cardNumber.length; k+=2) {
-                        me.ticket.numbers.push(parseInt(cardNumber[k]+cardNumber[k+1]));
+                        me.ticket.numbers.push(new BingoNumber(parseInt(cardNumber[k]+cardNumber[k+1])));
                     }
                     var i,
                         j;
@@ -35,16 +38,30 @@
 
                 me.isASquare = function (lineNumber, index){
                     var i;
-                    for (i=0; i <= me.lines[lineNumber].length; i++){
-                        var minRange = (index*10),
-                            maxRange = (index*10)+10;
-                        if (me.lines[lineNumber][i]>=minRange && me.lines[lineNumber][i] <= maxRange){
-                            return me.lines[lineNumber][i];
+                        for (i = 0; i < me.lines[lineNumber].length; i++) {
+                            var minRange = (index * 10),
+                                maxRange = (index * 10) + 10;
+                            if (me.lines[lineNumber][i].number >= minRange && me.lines[lineNumber][i].number <= maxRange) {
+                                return me.lines[lineNumber][i];
 
+                            }
+                        }
+
+                    return {number: '00'};
+
+                };
+
+                me.ifNumbersMatch = function (calledNumber){
+                    var i,
+                        j;
+                    for (i=0; i<3; i++){
+                        for (j=0; j<5; j++){
+                            if(me.lines[i][j].number === calledNumber){
+                                me.lines[i][j].matched = true;
+                                console.log('matched');
+                            }
                         }
                     }
-                    return 0;
-
                 };
             });
 })();
