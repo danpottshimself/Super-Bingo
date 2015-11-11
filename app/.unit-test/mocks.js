@@ -13,7 +13,7 @@ var mocks = {
         }
     },
     callingMethod: {
-
+    bingoCall: function (){}
     },
     gameTimer: {
 
