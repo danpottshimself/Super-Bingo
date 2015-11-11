@@ -48,13 +48,13 @@
         it('Ensures that the gameApi service is used in the scope correctly', function () {
             controller.gameApi.should.equal(mocks.gameApi);
         });
-        it('Ensures that the userLogIn service is used in the scope correctly', function () {
+        it('Ensures that the gameModel service is used in the scope correctly', function () {
             controller.userLogIn.should.equal(mocks.userLogIn);
         });
-        it('Ensures that the callingMethod service is used in the scope correctly', function () {
+        it('Ensures that the gameModel service is used in the scope correctly', function () {
             controller.callingMethod.should.equal(mocks.callingMethod);
         });
-        it('Ensures that the gameTimer service is used in the scope correctly', function () {
+        it('Ensures that the gameModel service is used in the scope correctly', function () {
             controller.gameTimer.should.equal(mocks.gameTimer);
         });
 
