@@ -43,12 +43,9 @@
                                 maxRange = (index * 10) + 10;
                             if (me.lines[lineNumber][i].number >= minRange && me.lines[lineNumber][i].number <= maxRange) {
                                 return me.lines[lineNumber][i];
-
                             }
                         }
-
                     return {number: '00'};
-
                 };
 
                 me.ifNumbersMatch = function (calledNumber){
