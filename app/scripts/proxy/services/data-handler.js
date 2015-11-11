@@ -1,13 +1,19 @@
 angular.module('Tombola.Module.ApiCall')
-    .service('DataHandle',['$http', '$q','$state',
-        function ($http, $q, $state) {
+    .service('DataHandle',['$http', '$q',
+        function ($http, $q) {
             var me = this;
-            me.dataHandler = function (endUrl, data) {
+            me.dataHandler = function (endUrl, data, headers, requestType) {
                 var deferred = $q.defer();
-                $http.post('http://eutaveg-01.tombola.emea:30069' + endUrl, data)
+                request = {
+                    method: requestType,
+                    url: 'http://eutaveg-01.tombola.emea:30069' + endUrl,
+                    data: data,
+                    headers: headers
+                };
+
+                $http(request)
                     .then(function (response) {
                         deferred.resolve(response.data);
-                        $state.go('lobby');
                     })
                     .catch(function (response) {
                         deferred.reject(response.data);
